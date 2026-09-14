@@ -1,0 +1,12 @@
+{
+  "name": "word-commit",
+  "version": "1.0.0",
+  "description": "Daily word-learning habit tracker with a GitHub-style heatmap",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

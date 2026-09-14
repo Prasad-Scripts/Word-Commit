@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WORD-COMMIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Daily vocabulary habit</p>
+          <h1>WORD-COMMIT</h1>
+        </div>
+      </header>
+
+      <section id="auth-card" class="card auth-card">
+        <form id="unlock-form" class="unlock-form">
+          <label>
+            <span>Full name</span>
+            <input id="unlock-name" name="name" type="text" placeholder="Jane Doe" autocomplete="name" required />
+          </label>
+
+          <label>
+            <span>4-digit PIN</span>
+            <input id="unlock-pin" name="pin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="1234" autocomplete="one-time-code" required />
+          </label>
+
+          <button type="submit">Unlock</button>
+        </form>
+
+        <p id="auth-status" class="status-message" aria-live="polite"></p>
+      </section>
+
+      <div id="dashboard" hidden>
+        <section class="card composer-card">
+          <form id="commit-form" class="commit-form">
+            <label>
+              <span>Full name</span>
+              <input id="name-input" name="name" type="text" placeholder="Jane Doe" autocomplete="name" required />
+            </label>
+
+            <label>
+              <span>Word learned</span>
+              <input id="word-input" name="word" type="text" placeholder="serendipity" autocomplete="off" required />
+            </label>
+
+            <button type="submit">Commit word</button>
+          </form>
+
+          <p id="status-message" class="status-message" aria-live="polite"></p>
+        </section>
+
+        <section class="card stats-card">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Total words</span>
+              <strong id="total-words">0</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Current streak</span>
+              <strong id="streak-count">0 days</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Active days</span>
+              <strong id="active-days">0</strong>
+            </div>
+          </div>
+
+          <div class="stats-footer">
+            <button id="reset-button" class="reset-button" type="button">Reset Data</button>
+          </div>
+        </section>
+
+          <section class="card heatmap-card">
+          <div class="heatmap-header">
+            <div class="heatmap-meta">
+              <span id="contribution-count" class="contribution-count">0 contributions in the last year</span>
+            </div>
+            <div class="heatmap-actions">
+              <button id="year-button" type="button" class="year-button">2026</button>
+            </div>
+          </div>
+
+          <div class="github-heatmap-shell">
+            <div class="heatmap-body">
+              <div id="month-labels" class="month-labels hidden" aria-hidden="true"></div>
+              <div id="heatmap" class="heatmap github-heatmap" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <div class="legend-row">
+            <span>Learn how we count contributions</span>
+            <div class="legend" aria-label="Heatmap legend">
+              <span>Less</span>
+              <span class="legend-box empty"></span>
+              <span class="legend-box level-1"></span>
+              <span class="legend-box level-2"></span>
+              <span class="legend-box level-3"></span>
+              <span class="legend-box level-4"></span>
+              <span>More</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card history-card">
+          <div class="history-header">
+            <h2>Word History</h2>
+          </div>
+          <div id="history-list" class="history-list" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="reset-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card">
+        <h3 id="reset-modal-title">Reset all vocabulary data?</h3>
+        <p id="reset-modal-text">All committed words, streak information, activity data, and heatmap data will be permanently deleted.</p>
+
+        <div id="reset-pin-panel" class="hidden">
+          <label>
+            <span>Enter your 4-digit PIN to confirm reset</span>
+            <input id="reset-pin-input" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="1234" autocomplete="one-time-code" />
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button id="reset-cancel" type="button" class="secondary-button">Cancel</button>
+          <button id="reset-continue" type="button" class="primary-button">Continue</button>
+          <button id="reset-confirm" type="button" class="primary-button hidden">Confirm Reset</button>
+        </div>
+
+        <p id="reset-modal-status" class="status-message" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
