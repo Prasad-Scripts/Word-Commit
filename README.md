@@ -63,6 +63,14 @@ Then open:
 http://localhost:3000
 ```
 
+## Screenshots
+
+<p align="center">
+  <img src="images/1.png" alt="Word Commit dashboard" width="32%" />
+  <img src="images/2.png" alt="Heatmap view" width="32%" />
+  <img src="images/3.png" alt="Word history view" width="32%" />
+</p>
+
 ## Notes
 
 - The app stores local data in `data/entries.json`.
